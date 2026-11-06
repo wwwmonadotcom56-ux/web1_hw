@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="دليل الأنشطة والفعاليات الجامعية - مشروع Web 1">
+    <title>الرئيسية | دليل الأنشطة الجامعية</title>
+    
+    <!-- الخطوط واستدعاء Bootstrap CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- ملف التنسيق الخاص بالصفحة -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- الهيدر وشريط التنقل Header & Navbar -->
+    <header class="top">
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            <a class="navbar-brand" href="index.html">
+                <b class="logo">م</b> 
+                منصة الفعاليات <small>الجامعة الافتراضية السورية</small>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="القائمة">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">دليل الفعاليات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">عن المبادرة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تواصل معنا</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- صندوق فريق العمل في أول الصفحة بالأعلى -->
+        <div class="container mt-4">
+            <div class="alert alert-success text-center shadow-sm border-0 mb-4 p-3 rounded-3">
+                <h5 class="fw-bold mb-2">👩‍💻 فريق العمل (IDs) 👨‍💻</h5>
+                <p class="mb-0 fs-6 fw-bold">
+                    منى خليل - ID: mona_199005 &nbsp;|&nbsp; 
+                    حنين الحبيش - ID: hanin_272033 &nbsp;|&nbsp; 
+                    احمد الجندي - ID: ahmad_327363 &nbsp;|&nbsp; 
+                    عمر القادري - ID: omar_301587
+                </p>
+            </div>
+        </div>
+
+        <!-- قسم الواجهة الرئيسي Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">● ملتقى طلاب الجامعة الافتراضية</span>
+                    <h1>ملتقى الطلاب،<br><em>ومساحة الإبداع الأكاديمي.</em></h1>
+                    <p>استكشف الورش التدريبية، البطولات الطلابية، والندوات العلمية المتاحة خلال هذا الفصل الدراسي.</p>
+                    <a class="btn btn-warm btn-lg mt-3" href="events.html">استعراض الأنشطة ←</a>
+                    
+                    <div class="stats">
+                        <span><b>+15</b><small>فعالية أكاديمية</small></span>
+                        <span><b>4</b><small>مسارات رئيسية</small></span>
+                        <span><b>SVU</b><small>مجتمع طلابي</small></span>
+                    </div>
+                </div>
+                <!-- صورة الواجهة الرئيسية -->
+                <img class="heroimg" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1100&q=80" alt="طلاب الجامعة الافتراضية">
+            </div>
+        </section>
+
+        <!-- قسم التصنيفات Categories Section -->
+        <section class="section">
+            <div class="container">
+                <div class="heading">
+                    <div>
+                        <label>التصنيفات الأكاديمية</label>
+                        <h2>اختر المجال الأنسب لك</h2>
+                        <p>تصفح الفعاليات حسب اهتمامك العلمي والطلابي.</p>
+                    </div>
+                    <a href="events.html">عرض الكل ←</a>
+                </div>
+                
+                <div class="row g-3">
+                    <div class="col-6 col-lg-3">
+                        <a class="category c1" href="events.html?category=culture">📚<b>ورش وتدريب</b><small>محاضرات وندوات تقنية</small></a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a class="category c2" href="events.html?category=sport">⚽<b>نشاط رياضي</b><small>بطولات ودوري الكلية</small></a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a class="category c3" href="events.html?category=music">🎨<b>معارض وإبداع</b><small>مشاريع وإبداعات طلابية</small></a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a class="category c4" href="events.html?category=social">🤝<b>ملتقيات طلابية</b><small>جلسات تعارف ونقاش</small></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الفعاليات البارزة Featured Section -->
+        <section class="section soft">
+            <div class="container">
+                <div class="heading">
+                    <div>
+                        <label>مقترحة هذا الأسبوع</label>
+                        <h2>أبرز أحدث الأنشطة</h2>
+                        <p>ندوات وورش عمل هامة لا تفوّتها هذا الأسبوع.</p>
+                    </div>
+                    <div>
+                        <button class="round" id="prev">→</button> 
+                        <button class="round" id="next">←</button>
+                    </div>
+                </div>
+
+                <div class="row g-4" id="featured">
+                    <!-- فعالية 1: أمن المعلومات -->
+                    <div class="col-md-6 col-lg-4 event-item" data-title="ورشة أمن المعلومات والشبكات" data-category="culture" data-date="2026-11-12" data-location="دمشق - مركز التعلم" data-search="ورشة أمن المعلومات والشبكات تطبيق عملي لحماية البيانات ورش وتدريب">
+                        <article class="cardx">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="ورشة أمن المعلومات">
+                            <div class="pad">
+                                <span class="badge tag-culture">ورش وتدريب</span>
+                                <h3>ورشة أمن المعلومات</h3>
+                                <p>أساسيات وحماية البيانات في الأنظمة الرقمية الحديثة.</p>
+                                <div class="meta">📅 12 تشرين الثاني · 📍 دمشق</div>
+                                <a class="btn btn-outline-primary w-100 mt-3" href="event.html?id=1">تفاصيل الفعالية</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- فعالية 2: ملتقى البرمجة -->
+                    <div class="col-md-6 col-lg-4 event-item" data-title="ملتقى طلاب البرمجة والتطوير" data-category="social" data-date="2026-11-15" data-location="أونلاين - Zoom" data-search="ملتقى طلاب البرمجة جلسة حوار وتبادل خبرات بين الطلاب ملتقيات طلابية">
+                        <article class="cardx">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="ملتقى البرمجة">
+                            <div class="pad">
+                                <span class="badge tag-social">ملتقيات طلابية</span>
+                                <h3>ملتقى البرمجة والتطوير</h3>
+                                <p>جلسة حوارية افتراضية وتبادل خبرات بين الطلاب الجدد والخريجين.</p>
+                                <div class="meta">📅 15 تشرين الثاني · 📍 افتراضي (أونلاين)</div>
+                                <a class="btn btn-outline-primary w-100 mt-3" href="event.html?id=2">تفاصيل الفعالية</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- فعالية 3: معرض المشاريع -->
+                    <div class="col-md-6 col-lg-4 event-item" data-title="معرض مشاريع التخرج المتميزة" data-category="music" data-date="2026-11-20" data-location="حمص" data-search="معرض مشاريع التخرج عرض أفكار وتطبيقات الطلاب الفائزة معارض وإبداع">
+                        <article class="cardx">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80" alt="معرض المشاريع">
+                            <div class="pad">
+                                <span class="badge tag-music">معارض وإبداع</span>
+                                <h3>معرض مشاريع التخرج</h3>
+                                <p>استعراض أفضل مشاريع برمجيات ومواقع الويب لهذا الفصل.</p>
+                                <div class="meta">📅 20 تشرين الثاني · 📍 حمص</div>
+                                <a class="btn btn-outline-primary w-100 mt-3" href="event.html?id=3">تفاصيل الفعالية</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div id="dots" class="dots"></div>
+            </div>
+        </section>
+
+        <!-- قسم الأنشطة القادمة -->
+        <section class="section">
+            <div class="container">
+                <div class="heading">
+                    <div>
+                        <label>جدول الأنشطة</label>
+                        <h2>جديد الفعاليات القادمة</h2>
+                        <p>تابع المواعيد القادمة وسجل حضورك.</p>
+                    </div>
+                    <a href="events.html">عرض الكتالوج الكامل ←</a>
+                </div>
+
+                <div class="row g-4">
+                    <!-- فعالية 4: الذكاء الاصطناعي -->
+                    <div class="col-md-6 col-lg-4 event-item" data-title="ندوة الذكاء الاصطناعي في التعليم" data-category="culture" data-date="2026-11-25" data-location="اللاذقية" data-search="ندوة الذكاء الاصطناعي تطبيق الأدوات الحديثة في الدراسة ورش وتدريب">
+                        <article class="cardx">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80" alt="ندوة الذكاء الاصطناعي">
+                            <div class="pad">
+                                <span class="badge tag-culture">ورش وتدريب</span>
+                                <h3>ندوة الذكاء الاصطناعي</h3>
+                                <p>كيف يستفيد طالب الهندسة من أدوات الذكاء الاصطناعي في دراسته.</p>
+                                <div class="meta">📅 25 تشرين الثاني · 📍 اللاذقية</div>
+                                <a class="btn btn-outline-primary w-100 mt-3" href="event.html?id=4">تفاصيل الفعالية</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- فعالية 5: بطولة الشطرنج -->
+                    <div class="col-md-6 col-lg-4 event-item" data-title="بطولة الشطرنج السنوية" data-category="sport" data-date="2026-11-28" data-location="حلب" data-search="بطولة الشطرنج التنافس السنوي بين طلاب الكليات نشاط رياضي">
+                        <article class="cardx">
+                            <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=900&q=80" alt="بطولة الشطرنج">
+                            <div class="pad">
+                                <span class="badge tag-sport">نشاط رياضي</span>
+                                <h3>بطولة الشطرنج السنوية</h3>
+                                <p>منافسة ذهن أونلاين ومراكز جامعية لطلاب مختلف المحافظات.</p>
+                                <div class="meta">📅 28 تشرين الثاني · 📍 حلب</div>
+                                <a class="btn btn-outline-primary w-100 mt-3" href="event.html?id=5">تفاصيل الفعالية</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- فعالية 6: مبادرة البرمجة -->
+                    <div class="col-md-6 col-lg-4 event-item" data-title="حملة البرمجة للجميع" data-category="social" data-date="2026-12-01" data-location="طرطوس" data-search="مبادرة البرمجة للجميع تدريب أساسيات Web للمبتدئين ملتقيات طلابية">
+                        <article class="cardx">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="مبادرة البرمجة للجميع">
+                            <div class="pad">
+                                <span class="badge tag-social">ملتقيات طلابية</span>
+                                <h3>مبادرة البرمجة للجميع</h3>
+                                <p>ورشة تبسيط مفاهيم تصميم المواقع لطلاب السنة الأولى.</p>
+                                <div class="meta">📅 01 كانون الأول · 📍 طرطوس</div>
+                                <a class="btn btn-outline-primary w-100 mt-3" href="event.html?id=6">تفاصيل الفعالية</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر Footer -->
+    <footer>
+        <div class="container">
+            <h3>✦ منصة الفعاليات الجامعية</h3>
+            <p>دليل الأنشطة والفعاليات والورش التدريبية لطلاب الجامعة الافتراضية السورية[cite: 7].</p>
+            <div>
+                <a href="events.html">الفعاليات</a> · <a href="about.html">عن المبادرة</a> · <a href="contact.html">تواصل معنا</a>
+            </div>
+            <small>© 2026 جميع الحقوق محفوظة — مشروع عملي لمادة BWP401[cite: 5].</small>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى Scroll to top button -->
+    <button id="topBtn" aria-label="العودة للأعلى">↑</button>
+
+    <!-- المكتبات والسكربتات JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

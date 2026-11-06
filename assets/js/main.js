@@ -1,0 +1,34 @@
+document.addEventListener('DOMContentLoaded',()=>{
+ const top=document.getElementById('topBtn');
+ if(top){const update=()=>top.classList.toggle('show',scrollY>350);addEventListener('scroll',update,{passive:true});update();top.onclick=()=>scrollTo({top:0,behavior:'smooth'});}
+ // Featured slider: mobile shows one card at a time.
+ const featured=document.getElementById('featured');
+ if(featured){const cards=[...featured.querySelectorAll('.event-item')],dots=document.getElementById('dots');let active=0;
+  cards.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`عرض الفعالية ${i+1}`);b.onclick=()=>show(i);dots.appendChild(b)});
+  function show(i){active=(i+cards.length)%cards.length;if(innerWidth<576)cards.forEach((c,n)=>c.classList.toggle('d-none',n!==active));[...dots.children].forEach((d,n)=>d.classList.toggle('active',n===active));}
+  document.getElementById('next')?.addEventListener('click',()=>show(active+1));document.getElementById('prev')?.addEventListener('click',()=>show(active-1));addEventListener('resize',()=>{cards.forEach(c=>c.classList.remove('d-none'));show(active)});show(0);
+ }
+ // Search/filter events by text, category, month and location.
+ const grid=document.getElementById('eventsGrid');
+ if(grid){const items=[...grid.querySelectorAll('.event-item')],q=document.getElementById('q'),cat=document.getElementById('cat'),date=document.getElementById('date'),loc=document.getElementById('loc'),count=document.getElementById('count'),empty=document.getElementById('empty');
+  const initial=new URLSearchParams(location.search).get('category');if(initial&&cat.querySelector(`option[value="${initial}"]`))cat.value=initial;
+  function filter(){let n=0;items.forEach(el=>{const text=(el.dataset.title+' '+el.dataset.search+' '+el.textContent).toLocaleLowerCase('ar');const ok=(!q.value||text.includes(q.value.toLocaleLowerCase('ar').trim()))&&(!cat.value||el.dataset.category===cat.value)&&(!date.value||el.dataset.date.startsWith(date.value))&&(!loc.value||el.dataset.location===loc.value);el.classList.toggle('d-none',!ok);if(ok)n++});count.textContent=`عدد الفعاليات المطابقة: ${n}`;empty.classList.toggle('d-none',n!==0);}
+  [q,cat,date,loc].forEach(x=>{x.addEventListener('input',filter);x.addEventListener('change',filter)});document.getElementById('search')?.addEventListener('click',filter);document.getElementById('reset')?.addEventListener('click',()=>{q.value=cat.value=date.value=loc.value='';filter()});filter();
+ }
+ // Data for six sample event detail URLs.
+ const data={
+ '1':['ورشة المهارات الرقمية','culture','ثقافة ومعرفة','2026-10-28','28 تشرين الأول 2026','11:00 صباحاً','دمشق / عبر الإنترنت','خطوات عملية لتطوير المهارات الرقمية واكتشاف أدوات يمكن الاستفادة منها في الدراسة والعمل.','photo-1516321318423-f06f85e504b3'],
+ '2':['لقاء المجتمع الطلابي','social','مجتمع وطلاب','2026-10-30','30 تشرين الأول 2026','04:00 مساءً','دمشق','لقاء للتعارف وتبادل الأفكار حول المبادرات والأنشطة الجامعية.','photo-1528605248644-14dd04022da1'],
+ '3':['أمسية موسيقية شبابية','music','فن وموسيقى','2026-11-02','2 تشرين الثاني 2026','06:30 مساءً','حمص','أمسية فنية تجريبية تحتفي بالمواهب الموسيقية الشابة والإبداع.','photo-1514525253161-7a46d19cd819'],
+ '4':['جلسة حوار حول الابتكار','culture','ثقافة ومعرفة','2026-11-05','5 تشرين الثاني 2026','12:00 ظهراً','اللاذقية','جلسة حوارية تشجع التفكير الإبداعي ومناقشة الأفكار الجديدة.','photo-1544531586-fde5298cdd40'],
+ '5':['يوم النشاط الرياضي','sport','رياضة ونشاط','2026-11-07','7 تشرين الثاني 2026','10:00 صباحاً','حلب','أنشطة جماعية وتحديات ودية تشجع الحركة وروح الفريق.','photo-1521412644187-c49fa049e84d'],
+ '6':['مبادرة أثر طيب','social','مجتمع وطلاب','2026-11-09','9 تشرين الثاني 2026','09:30 صباحاً','طرطوس','مبادرة طلابية تشجع العمل التطوعي والمشاركة الإيجابية في المجتمع.','photo-1511632765486-a01980e01a18']};
+ const title=document.getElementById('detailTitle');
+ if(title){const d=data[new URLSearchParams(location.search).get('id')||'1']||data['1'];title.textContent=d[0];document.getElementById('titleHero').textContent=d[0];const tag=document.getElementById('detailTag');tag.textContent=d[2];tag.className='badge tag-'+d[1];document.getElementById('detailDate').textContent=d[4];document.getElementById('detailTime').textContent=d[5];document.getElementById('detailLoc').textContent=d[6];document.getElementById('mapLoc').textContent=d[6];document.getElementById('desc').textContent=d[7];const img=document.getElementById('detailImg');img.src=`https://images.unsplash.com/${d[8]}?auto=format&fit=crop&w=1400&q=85`;img.alt=d[0];document.title=d[0]+' | دليل الفعاليات';
+ document.getElementById('calendar').onclick=()=>{const start=d[3].replaceAll('-','')+'T110000';const end=d[3].replaceAll('-','')+'T120000';const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT',`DTSTART:${start}`,`DTEND:${end}`,`SUMMARY:${d[0]}`,`LOCATION:${d[6]}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download='event.ics';a.click();document.getElementById('actionMsg').textContent='تم تجهيز ملف تقويم تجريبي للتنزيل.';};
+ document.getElementById('share').onclick=async()=>{try{if(navigator.share)await navigator.share({title:d[0],url:location.href});else if(navigator.clipboard&&isSecureContext){await navigator.clipboard.writeText(location.href);document.getElementById('actionMsg').textContent='تم نسخ رابط الفعالية.';}else prompt('انسخ رابط الفعالية',location.href)}catch(e){if(e.name!=='AbortError')document.getElementById('actionMsg').textContent='انسخ الرابط من شريط العنوان للمشاركة.'}};
+ }
+ // Front-end validation only; this static form does not send an email.
+ const form=document.getElementById('contactForm');
+ if(form){const alert=document.getElementById('alert'),name=document.getElementById('name'),email=document.getElementById('email'),message=document.getElementById('message');form.addEventListener('submit',e=>{e.preventDefault();[name,email,message].forEach(x=>x.classList.toggle('is-invalid',!x.checkValidity()));alert.classList.remove('d-none','alert-success','alert-danger');if(!form.checkValidity()){alert.classList.add('alert-danger');alert.textContent='يرجى تصحيح الحقول المحددة قبل المتابعة.';form.querySelector(':invalid')?.focus();return}alert.classList.add('alert-success');alert.textContent=`شكراً ${name.value.trim()}، تم التحقق من البيانات بنجاح. هذا نموذج تجريبي ولا يرسل بريداً فعلياً.`;form.reset();[name,email,message].forEach(x=>x.classList.remove('is-invalid'))});[name,email,message].forEach(x=>x.addEventListener('input',()=>{if(x.checkValidity())x.classList.remove('is-invalid')}));}
+});
